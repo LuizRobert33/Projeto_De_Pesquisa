@@ -1,0 +1,46 @@
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.dll.config
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\AproximaçãoSeno.exe.config
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\AproximaçãoSeno.exe
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\AproximaçãoSeno.pdb
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.dll
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.Genetic.dll
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.Math.Core.dll
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.Math.dll
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.Neuro.dll
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.xml
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.Genetic.xml
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.Math.xml
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.Math.Core.xml
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.Neuro.xml
+C:\Users\luizr\source\repos\AproximaçãoSeno\obj\Debug\AproximaçãoSeno.csproj.AssemblyReference.cache
+C:\Users\luizr\source\repos\AproximaçãoSeno\obj\Debug\AproximaçãoSeno.csproj.CoreCompileInputs.cache
+C:\Users\luizr\source\repos\AproximaçãoSeno\obj\Debug\Aproxima.D486C96E.Up2Date
+C:\Users\luizr\source\repos\AproximaçãoSeno\obj\Debug\AproximaçãoSeno.exe
+C:\Users\luizr\source\repos\AproximaçãoSeno\obj\Debug\AproximaçãoSeno.pdb
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.MachineLearning.dll
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.Statistics.dll
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.MachineLearning.xml
+C:\Users\luizr\source\repos\AproximaçãoSeno\bin\Debug\Accord.Statistics.xml
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.dll.config
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\AproximaçãoSeno.exe.config
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\AproximaçãoSeno.exe
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\AproximaçãoSeno.pdb
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.dll
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.Genetic.dll
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.MachineLearning.dll
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.Math.Core.dll
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.Math.dll
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.Neuro.dll
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.Statistics.dll
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.xml
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.Genetic.xml
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.MachineLearning.xml
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.Math.xml
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.Math.Core.xml
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.Neuro.xml
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\bin\Debug\Accord.Statistics.xml
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\obj\Debug\AproximaçãoSeno.csproj.AssemblyReference.cache
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\obj\Debug\AproximaçãoSeno.csproj.CoreCompileInputs.cache
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\obj\Debug\Aproxima.D486C96E.Up2Date
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\obj\Debug\AproximaçãoSeno.exe
+C:\Users\luizr\OneDrive\Área de Trabalho\IC\AproximaçãoSeno\obj\Debug\AproximaçãoSeno.pdb
