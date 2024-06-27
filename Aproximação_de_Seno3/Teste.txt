@@ -1,0 +1,67 @@
+*****************************************************************
+Porcetagem de acerto baseado na taxa de Aprendizado.
+*****************************************************************
+Taxa de Aprendizado: 0.1:
+
+Input: -2, Predicted: -0,952631203295393, Actual: -0,909297426825682
+Input: -1,75, Predicted: -0,950591122905513, Actual: -0,983985946873937
+Input: -1,5, Predicted: -0,944862197585174, Actual: -0,997494986604054
+Input: -1,25, Predicted: -0,927106073118988, Actual: -0,948984619355586
+Input: -1, Predicted: -0,870737841454109, Actual: -0,841470984807897
+Input: -0,75, Predicted: -0,720650895309384, Actual: -0,681638760023334
+Input: -0,5, Predicted: -0,466010154552337, Actual: -0,479425538604203
+Input: -0,25, Predicted: -0,201424830526767, Actual: -0,247403959254523
+Input: 0, Predicted: 0,0222001903752407, Actual: 0
+Input: 0,25, Predicted: 0,23500756970109, Actual: 0,247403959254523
+Input: 0,5, Predicted: 0,468856397520391, Actual: 0,479425538604203
+Input: 0,75, Predicted: 0,696300704799238, Actual: 0,681638760023334
+Input: 1, Predicted: 0,850217706835467, Actual: 0,841470984807897
+Input: 1,25, Predicted: 0,922389171799351, Actual: 0,948984619355586
+Input: 1,5, Predicted: 0,951103758882109, Actual: 0,997494986604054
+Input: 1,75, Predicted: 0,962828435829477, Actual: 0,983985946873937
+Input: 2, Predicted: 0,968063640667423, Actual: 0,909297426825682
+Resultado salvo em: 'resultados_aproximacao_de_Seno.txt'
+
+Taxa de Aprendizado : 0.01
+
+Input: -2, Predicted: -0,963388731225503, Actual: -0,909297426825682
+Input: -1,75, Predicted: -0,954127031154178, Actual: -0,983985946873937
+Input: -1,5, Predicted: -0,937751166442541, Actual: -0,997494986604054
+Input: -1,25, Predicted: -0,905834065519221, Actual: -0,948984619355586
+Input: -1, Predicted: -0,839566455909739, Actual: -0,841470984807897
+Input: -0,75, Predicted: -0,706932501588653, Actual: -0,681638760023334
+Input: -0,5, Predicted: -0,491723405618605, Actual: -0,479425538604203
+Input: -0,25, Predicted: -0,240623439646064, Actual: -0,247403959254523
+Input: 0, Predicted: -0,00212338697732495, Actual: 0
+Input: 0,25, Predicted: 0,239555832190383, Actual: 0,247403959254523
+Input: 0,5, Predicted: 0,493566750629078, Actual: 0,479425538604203
+Input: 0,75, Predicted: 0,707789911328142, Actual: 0,681638760023334
+Input: 1, Predicted: 0,840444216438089, Actual: 0,841470984807897
+Input: 1,25, Predicted: 0,907715893179768, Actual: 0,948984619355586
+Input: 1,5, Predicted: 0,940142728390761, Actual: 0,997494986604054
+Input: 1,75, Predicted: 0,956352812008946, Actual: 0,983985946873937
+Input: 2, Predicted: 0,964977731644873, Actual: 0,909297426825682
+
+Taxa de Aprendizado: 0.001:
+
+Input: -2, Predicted: -0,917433247284427, Actual: -0,909297426825682
+Input: -1,75, Predicted: -0,914672959674453, Actual: -0,983985946873937
+Input: -1,5, Predicted: -0,908183721701086, Actual: -0,997494986604054
+Input: -1,25, Predicted: -0,892260480717927, Actual: -0,948984619355586
+Input: -1, Predicted: -0,850402457639239, Actual: -0,841470984807897
+Input: -0,75, Predicted: -0,738506828307025, Actual: -0,681638760023334
+Input: -0,5, Predicted: -0,505607946539348, Actual: -0,479425538604203
+Input: -0,25, Predicted: -0,218194083551832, Actual: -0,247403959254523
+Input: 0, Predicted: 0,0215722971764145, Actual: 0
+Input: 0,25, Predicted: 0,228659809255782, Actual: 0,247403959254523
+Input: 0,5, Predicted: 0,459056332421295, Actual: 0,479425538604203
+Input: 0,75, Predicted: 0,705147523777212, Actual: 0,681638760023334
+Input: 1, Predicted: 0,863916098584894, Actual: 0,841470984807897
+Input: 1,25, Predicted: 0,921095512731983, Actual: 0,948984619355586
+Input: 1,5, Predicted: 0,93675666954373, Actual: 0,997494986604054
+Input: 1,75, Predicted: 0,940908593214504, Actual: 0,983985946873937
+Input: 2, Predicted: 0,942069239869354, Actual: 0,909297426825682
+
+*****************************************************************
+Quanto menor a taxa de aprendizagem mais proximade do valor real a rede fica
+*****************************************************************

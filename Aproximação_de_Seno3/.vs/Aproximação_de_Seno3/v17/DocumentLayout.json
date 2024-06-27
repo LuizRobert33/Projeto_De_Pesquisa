@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\IC\\Aproxima\u00E7\u00E3o_de_Seno3\\",
+  "WorkspaceRootPath": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\Projeto_De_Pesquisa\\Aproxima\u00E7\u00E3o_de_Seno3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\IC\\Aproxima\u00E7\u00E3o_de_Seno3\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\Projeto_De_Pesquisa\\Aproxima\u00E7\u00E3o_de_Seno3\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\Projeto_De_Pesquisa\\Aproxima\u00E7\u00E3o_de_Seno3\\Updates.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Updates.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,15 +18,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Updates.txt",
+              "DocumentMoniker": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\Projeto_De_Pesquisa\\Aproxima\u00E7\u00E3o_de_Seno3\\Updates.txt",
+              "RelativeDocumentMoniker": "Updates.txt",
+              "ToolTip": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\Projeto_De_Pesquisa\\Aproxima\u00E7\u00E3o_de_Seno3\\Updates.txt",
+              "RelativeToolTip": "Updates.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-06-20T18:48:22.399Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\IC\\Aproxima\u00E7\u00E3o_de_Seno3\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\Projeto_De_Pesquisa\\Aproxima\u00E7\u00E3o_de_Seno3\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\IC\\Aproxima\u00E7\u00E3o_de_Seno3\\Program.cs",
+              "ToolTip": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\Projeto_De_Pesquisa\\Aproxima\u00E7\u00E3o_de_Seno3\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAAAEAAAACNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

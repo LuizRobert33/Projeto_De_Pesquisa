@@ -40,7 +40,7 @@ class Aproximacao_Seno_3
         // Criar o algoritmo de aprendizado
         var teacher = new BackPropagationLearning(network)
         {
-            LearningRate = 0.1
+            LearningRate = 0.01 // Taxa de aprendizagem mais proxima testada 
         };
 
         // Treinar a rede neural

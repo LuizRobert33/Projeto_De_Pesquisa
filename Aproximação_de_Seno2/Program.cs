@@ -65,3 +65,4 @@ class Aproximação_Seno_2
         Console.WriteLine("resultado salvo em: 'resultados_aproximação_de_Seno.txt'");
     }
 }
+
