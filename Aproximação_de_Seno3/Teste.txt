@@ -65,3 +65,4 @@ Input: 2, Predicted: 0,942069239869354, Actual: 0,909297426825682
 *****************************************************************
 Quanto menor a taxa de aprendizagem mais proximade do valor real a rede fica
 *****************************************************************
+

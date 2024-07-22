@@ -1,0 +1,55 @@
+*******************************************************
+Diferença na execução do codigos com troca de funções.
+*******************************************************
+
+OBS: resultados esses antes da normalização
+
+Sigmoid:
+
+// Input: -2, Predicted: 0,000256679608532998, Actual: -0,909297426825682
+Input: -1,8, Predicted: 0,000256919088411191, Actual: -0,973847630878195
+Input: -1,6, Predicted: 0,000257477169010175, Actual: -0,999573603041505
+Input: -1,4, Predicted: 0,000258800305058474, Actual: -0,98544972998846
+Input: -1,2, Predicted: 0,00026200320914666, Actual: -0,932039085967226
+Input: -1, Predicted: 0,000270007437886595, Actual: -0,841470984807897
+Input: -0,8, Predicted: 0,000291274267263771, Actual: -0,717356090899523
+Input: -0,6, Predicted: 0,000355914179110247, Actual: -0,564642473395035
+Input: -0,4, Predicted: 0,000623225973825009, Actual: -0,389418342308651
+Input: -0,2, Predicted: 0,00270884071592702, Actual: -0,198669330795061
+Input: 0, Predicted: 0,0302396660162895, Actual: 0
+Input: 0,2, Predicted: 0,177054820718946, Actual: 0,198669330795061
+Input: 0,4, Predicted: 0,384064166596151, Actual: 0,389418342308651
+Input: 0,6, Predicted: 0,567830055511075, Actual: 0,564642473395035
+Input: 0,8, Predicted: 0,732084998612843, Actual: 0,717356090899523
+Input: 1, Predicted: 0,851733518353228, Actual: 0,841470984807897
+Input: 1,2, Predicted: 0,913629687937874, Actual: 0,932039085967226
+Input: 1,4, Predicted: 0,940208543417066, Actual: 0,98544972998846
+Input: 1,6, Predicted: 0,9517635649312, Actual: 0,999573603041505
+Input: 1,8, Predicted: 0,957259878826223, Actual: 0,973847630878195
+Input: 2, Predicted: 0,960116567356965, Actual: 0,909297426825682 //
+
+BiolarSIgmoid:
+// Input: -2, Predicted: -0,960009835089399, Actual: -0,909297426825682
+Input: -1,8, Predicted: -0,954605927775821, Actual: -0,973847630878195
+Input: -1,6, Predicted: -0,946878003099445, Actual: -0,999573603041505
+Input: -1,4, Predicted: -0,933999727814869, Actual: -0,98544972998846
+Input: -1,2, Predicted: -0,909253632059586, Actual: -0,932039085967226
+Input: -1, Predicted: -0,857618585702276, Actual: -0,841470984807897
+Input: -0,8, Predicted: -0,753715918887033, Actual: -0,717356090899523
+Input: -0,6, Predicted: -0,582034706931735, Actual: -0,564642473395035
+Input: -0,4, Predicted: -0,371658951492344, Actual: -0,389418342308651
+Input: -0,2, Predicted: -0,170089661355748, Actual: -0,198669330795061
+Input: 0, Predicted: 0,00891661764307039, Actual: 0
+Input: 0,2, Predicted: 0,181571671995283, Actual: 0,198669330795061
+Input: 0,4, Predicted: 0,367117386409933, Actual: 0,389418342308651
+Input: 0,6, Predicted: 0,564907597883053, Actual: 0,564642473395035
+Input: 0,8, Predicted: 0,742449938543073, Actual: 0,717356090899523
+Input: 1, Predicted: 0,861796142705558, Actual: 0,841470984807897
+Input: 1,2, Predicted: 0,921655026928204, Actual: 0,932039085967226
+Input: 1,4, Predicted: 0,94607407938016, Actual: 0,98544972998846
+Input: 1,6, Predicted: 0,954169325436465, Actual: 0,999573603041505
+Input: 1,8, Predicted: 0,954687641724122, Actual: 0,973847630878195
+Input: 2, Predicted: 0,950936551393562, Actual: 0,909297426825682
+
+
+OBS: sem normalizar a função BipolarSigmoid se aproxima mais dos valores reais
