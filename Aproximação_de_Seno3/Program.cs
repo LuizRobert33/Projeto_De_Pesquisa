@@ -109,7 +109,7 @@ class Aproximacao_Seno_3
         // Validar a rede neural
         using (StreamWriter writer = new StreamWriter("resultados_validacao.txt"))
         {
-            writer.WriteLine("Input\tPredicted\tExpected");
+            writer.WriteLine("Input\tPredicted \tExpected");
             for (int i = 0; i < validationInputs.Length; i++)
             {
                 double[] output = network.Compute(new double[] { normalizedValidationInputs[i] });
