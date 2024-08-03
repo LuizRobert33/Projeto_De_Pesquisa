@@ -83,11 +83,11 @@ class Aproximacao_Seno_3
                 double[] output = network.Compute(inputs[i]);
 
                 // Desnormalizar os valores
-                double actualValue = Math.Sin(Denormalize(inputs[i][0], minX, maxX));
-                double predictedValue = Denormalize(output[0], minT, maxT);
+                double actualValue = Math.Sin(inputs[i][0] * (maxX - minX) + minX);
+                double predictedValue = output[0] * (maxT - minT) + minT;
 
-                writer.WriteLine($"{Denormalize(inputs[i][0], minX, maxX)}\t{predictedValue}\t{actualValue}");
-                Console.WriteLine($"Input: {Denormalize(inputs[i][0], minX, maxX)}, Predicted: {predictedValue}, Actual: {actualValue}");
+                writer.WriteLine($"{inputs[i][0] * (maxX - minX) + minX}\t{predictedValue}\t{actualValue}");
+                Console.WriteLine($"Input: {inputs[i][0] * (maxX - minX) + minX}, Predicted: {predictedValue}, Actual: {actualValue}");
             }
         }
 
@@ -115,7 +115,7 @@ class Aproximacao_Seno_3
                 double[] output = network.Compute(new double[] { normalizedValidationInputs[i] });
 
                 // Desnormalizar os valores
-                double predictedValue = Denormalize(output[0], minT, maxT);
+                double predictedValue = output[0] * (maxT - minT) + minT;
                 double expectedValue = expectedOutputs[i];
 
                 writer.WriteLine($"{validationInputs[i]}\t{predictedValue}\t{expectedValue}");
@@ -130,7 +130,7 @@ class Aproximacao_Seno_3
         for (int i = 0; i < X.Length; i++)
         {
             double[] output = network.Compute(new double[] { (X[i] - minX) / (maxX - minX) });
-            predicted[i] = Denormalize(output[0], minT, maxT);
+            predicted[i] = output[0] * (maxT - minT) + minT;
         }
 
         // Criar o gráfico de treinamento
@@ -142,16 +142,11 @@ class Aproximacao_Seno_3
         for (int i = 0; i < validationInputs.Length; i++)
         {
             double[] output = network.Compute(new double[] { normalizedValidationInputs[i] });
-            predictedValidation[i] = Denormalize(output[0], minT, maxT);
+            predictedValidation[i] = output[0] * (maxT - minT) + minT;
         }
 
         // Criar o gráfico de validação
         ScatterplotBox.Show("Gráfico de Validação - Valores Reais", validationInputs, expectedOutputs);
         ScatterplotBox.Show("Gráfico de Validação - Valores Previsto", validationInputs, predictedValidation);
-    }
-
-    static double Denormalize(double value, double min, double max)
-    {
-        return value * (max - min) + min;
     }
 }
