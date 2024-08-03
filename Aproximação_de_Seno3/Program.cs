@@ -12,8 +12,11 @@ class Aproximacao_Seno_3
     static void Main(string[] args)
     {
         // Definir os vetores de treinamento
-        double[] X = { -2, -1.8, -1.6, -1.4, -1.2, -1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 };
+        double[] X = { -2, -1.8, -1.6, -1.4, -1.2, -1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 };   
         double[] T = new double[X.Length];
+        // Dados de Validação
+        double[] validationInputs = { -1.3, -0.3, 0.5, 0.9, 1.3, 1.9 };
+        double[] expectedOutputs = { Math.Sin(-1.3), Math.Sin(-0.3), Math.Sin(0.5), Math.Sin(0.9), Math.Sin(1.3), Math.Sin(1.9) };
 
         for (int i = 0; i < X.Length; i++)
         {
@@ -69,7 +72,10 @@ class Aproximacao_Seno_3
         int epoca = 0;
         do
         {
-            error = teacher.RunEpoch(inputs, outputs);
+            error = teacher.RunEpoch(inputs, outputs); // Outputs dos meus dados com  Outputs da rede neural Retornando (treinamento)
+            double[] OutputRNA 
+            double[] validationoutput = network.Compute(validationInputs);
+            //expectedOutputs
             epoca++;
             Console.WriteLine($"Epoca: {epoca}, Erro: {error}");
         } while (error > 0.01 && epoca < 10000);
@@ -96,8 +102,7 @@ class Aproximacao_Seno_3
         // Começo do Processo de Validação
 
         // Dados de validação
-        double[] validationInputs = { -1.3, -0.3, 0.5, 0.9, 1.3, 1.9 };
-        double[] expectedOutputs = { Math.Sin(-1.3), Math.Sin(-0.3), Math.Sin(0.5), Math.Sin(0.9), Math.Sin(1.3), Math.Sin(1.9) };
+        
 
         // Normalizar dados de validação
         double[] normalizedValidationInputs = new double[validationInputs.Length];
@@ -109,7 +114,7 @@ class Aproximacao_Seno_3
         // Validar a rede neural
         using (StreamWriter writer = new StreamWriter("resultados_validacao.txt"))
         {
-            writer.WriteLine("Input\tPredicted\tExpected");
+            writer.WriteLine("Input\tPredicted \tExpected");
             for (int i = 0; i < validationInputs.Length; i++)
             {
                 double[] output = network.Compute(new double[] { normalizedValidationInputs[i] });
