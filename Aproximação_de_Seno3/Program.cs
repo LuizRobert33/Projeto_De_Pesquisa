@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
 using System.IO;
 using Accord.Controls;
 using Accord.Neuro;
 using Accord.Neuro.Learning;
-using Accord.Math.Random;
 
 class Aproximacao_Seno_3
 {
     static void Main(string[] args)
     {
         // Definir os vetores de treinamento
-        double[] X = { -2, -1.8, -1.6, -1.4, -1.2, -1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 };   
+        double[] X = { -2, -1.8, -1.6, -1.4, -1.2, -1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 };
         double[] T = new double[X.Length];
         // Dados de Validação
         double[] validationInputs = { -1.3, -0.3, 0.5, 0.9, 1.3, 1.9 };
@@ -68,19 +65,30 @@ class Aproximacao_Seno_3
         };
 
         // Treinar a rede neural
-        double error;
+        double trainingError;
+        double epochError;
         int epoca = 0;
         do
         {
-            error = teacher.RunEpoch(inputs, outputs); // Outputs dos meus dados com  Outputs da rede neural Retornando (treinamento)
-            double[] OutputRNA 
-            double[] validationoutput = network.Compute(validationInputs);
-            //expectedOutputs
-            epoca++;
-            Console.WriteLine($"Epoca: {epoca}, Erro: {error}");
-        } while (error > 0.01 && epoca < 10000);
+            epochError = teacher.RunEpoch(inputs, outputs);
 
-        // Criar um arquivo txt com os resultados
+            // Cálculo manual do erro entre o y real e o y previsto
+            trainingError = 0;
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                double[] output = network.Compute(inputs[i]);
+                double predictedValue = Denormalize(output[0], minT, maxT);
+                double actualValue = Math.Sin(Denormalize(inputs[i][0], minX, maxX));
+                trainingError += Math.Pow(predictedValue - actualValue, 2);
+            }
+            trainingError /= inputs.Length;
+
+            epoca++;
+            Console.WriteLine($"Epoca: {epoca}, Erro Médio no Treinamento: {epochError}, Erro Quadrático Médio: {trainingError}");
+
+        } while (epochError > 0.01 && epoca < 10000);
+
+        // Criar um arquivo txt com os resultados do treinamento
         using (StreamWriter writer = new StreamWriter("resultados_aproximacao_de_Seno.txt"))
         {
             writer.WriteLine("Input\tPredicted\tActual");
@@ -99,11 +107,6 @@ class Aproximacao_Seno_3
 
         Console.WriteLine("Resultado salvo em: 'resultados_aproximacao_de_Seno.txt'");
 
-        // Começo do Processo de Validação
-
-        // Dados de validação
-        
-
         // Normalizar dados de validação
         double[] normalizedValidationInputs = new double[validationInputs.Length];
         for (int i = 0; i < validationInputs.Length; i++)
@@ -114,7 +117,8 @@ class Aproximacao_Seno_3
         // Validar a rede neural
         using (StreamWriter writer = new StreamWriter("resultados_validacao.txt"))
         {
-            writer.WriteLine("Input\tPredicted \tExpected");
+            writer.WriteLine("Input\tPredicted\tExpected");
+            double squaredErrorSum = 0.0;
             for (int i = 0; i < validationInputs.Length; i++)
             {
                 double[] output = network.Compute(new double[] { normalizedValidationInputs[i] });
@@ -123,9 +127,16 @@ class Aproximacao_Seno_3
                 double predictedValue = Denormalize(output[0], minT, maxT);
                 double expectedValue = expectedOutputs[i];
 
+                // Calcular o erro quadrático para validação
+                double error = predictedValue - expectedValue;
+                squaredErrorSum += error * error;
+
                 writer.WriteLine($"{validationInputs[i]}\t{predictedValue}\t{expectedValue}");
                 Console.WriteLine($"Input: {validationInputs[i]}, Predicted: {predictedValue}, Expected: {expectedValue}");
             }
+
+            double meanSquaredErrorValidation = squaredErrorSum / validationInputs.Length;
+            Console.WriteLine($"Erro Quadrático Médio de Validação: {meanSquaredErrorValidation}");
         }
 
         Console.WriteLine("Resultado de validação salvo em: 'resultados_validacao.txt'");
@@ -149,10 +160,6 @@ class Aproximacao_Seno_3
             double[] output = network.Compute(new double[] { normalizedValidationInputs[i] });
             predictedValidation[i] = Denormalize(output[0], minT, maxT);
         }
-
-        // Criar o gráfico de validação
-        ScatterplotBox.Show("Gráfico de Validação - Valores Reais", validationInputs, expectedOutputs);
-        ScatterplotBox.Show("Gráfico de Validação - Valores Previsto", validationInputs, predictedValidation);
     }
 
     static double Denormalize(double value, double min, double max)
