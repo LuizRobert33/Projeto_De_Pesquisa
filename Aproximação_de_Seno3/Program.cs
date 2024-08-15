@@ -108,7 +108,7 @@ class Aproximacao_Seno_3
         Console.WriteLine("Resultado salvo em: 'resultados_aproximacao_de_Seno.txt'");
 
         // Normalizar dados de validação
-        double[] normalizedValidationInputs = new double[validationInputs.Length];
+        double[] normalizedValidationInputs = new double[validationInputs.Length]; 
         for (int i = 0; i < validationInputs.Length; i++)
         {
             normalizedValidationInputs[i] = (validationInputs[i] - minX) / (maxX - minX);
