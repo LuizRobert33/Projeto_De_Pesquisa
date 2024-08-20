@@ -84,6 +84,8 @@ class Aproximacao_Seno_3
             trainingError /= inputs.Length;
 
             epoca++;
+            // Erro Quadrático Médio (MSE): Mede a média dos quadrados das diferenças entre os valores reais e os valores previstos.
+            // Erro Médio de Treinamento: Média dos erros absolutos entre os valores reais e previstos durante o treinamento.
             Console.WriteLine($"Epoca: {epoca}, Erro Médio no Treinamento: {epochError}, Erro Quadrático Médio: {trainingError}");
 
         } while (epochError > 0.01 && epoca < 10000);
@@ -127,7 +129,7 @@ class Aproximacao_Seno_3
                 double predictedValue = Denormalize(output[0], minT, maxT);
                 double expectedValue = expectedOutputs[i];
 
-                // Calcular o erro quadrático para validação
+                // Calcular o erro quadrático para validação 
                 double error = predictedValue - expectedValue;
                 squaredErrorSum += error * error;
 
@@ -136,10 +138,10 @@ class Aproximacao_Seno_3
             }
 
             double meanSquaredErrorValidation = squaredErrorSum / validationInputs.Length;
-            Console.WriteLine($"Erro Quadrático Médio de Validação: {meanSquaredErrorValidation}");
+            // Console.WriteLine($"Erro Quadrático Médio de Validação: {meanSquaredErrorValidation}");
         }
 
-        Console.WriteLine("Resultado de validação salvo em: 'resultados_validacao.txt'");
+        // Console.WriteLine("Resultado de validação salvo em: 'resultados_validacao.txt'");
 
         // Preparar os dados para o gráfico de treinamento
         double[] predicted = new double[X.Length];
