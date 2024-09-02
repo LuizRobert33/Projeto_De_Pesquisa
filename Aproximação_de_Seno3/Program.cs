@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-using Accord.Controls;
 using Accord.Neuro;
 using Accord.Neuro.Learning;
 
@@ -11,9 +9,6 @@ class Aproximacao_Seno_3
         // Definir os vetores de treinamento
         double[] X = { -2, -1.8, -1.6, -1.4, -1.2, -1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 };
         double[] T = new double[X.Length];
-        // Dados de Validação
-        double[] validationInputs = { -1.3, -0.3, 0.5, 0.9, 1.3, 1.9 };
-        double[] expectedOutputs = { Math.Sin(-1.3), Math.Sin(-0.3), Math.Sin(0.5), Math.Sin(0.9), Math.Sin(1.3), Math.Sin(1.9) };
 
         for (int i = 0; i < X.Length; i++)
         {
@@ -61,107 +56,92 @@ class Aproximacao_Seno_3
         // Criar o algoritmo de aprendizado
         var teacher = new BackPropagationLearning(network)
         {
-            LearningRate = 0.001 // Taxa de aprendizagem mais próxima testada 
+            LearningRate = 0.001 // Taxa de aprendizagem
         };
 
-        // Treinar a rede neural
-        double trainingError;
-        double epochError;
-        int epoca = 0;
-        do
-        {
-            epochError = teacher.RunEpoch(inputs, outputs);
+        // Definir o número de folds para a validação cruzada
+        int k = 5;
+        int foldSize = X.Length / k;
 
-            // Cálculo manual do erro entre o y real e o y previsto
-            trainingError = 0;
+        double totalTrainingError = 0;
+        double totalValidationError = 0;
+
+        // Executar a validação cruzada
+        for (int fold = 0; fold < k; fold++)
+        {
+            Console.WriteLine($"\nIniciando Fold {fold + 1}");
+
+            // Preparar os dados de treinamento e validação para o fold atual
+            double[][] foldTrainInputs = new double[X.Length - foldSize][];
+            double[][] foldTrainOutputs = new double[X.Length - foldSize][];
+            double[][] foldValidationInputs = new double[foldSize][];
+            double[][] foldValidationOutputs = new double[foldSize][];
+
+            int trainIndex = 0;
+            int validationIndex = 0;
+
             for (int i = 0; i < inputs.Length; i++)
             {
-                double[] output = network.Compute(inputs[i]);
-                double predictedValue = Denormalize(output[0], minT, maxT);
-                double actualValue = Math.Sin(Denormalize(inputs[i][0], minX, maxX));
-                trainingError += Math.Pow(predictedValue - actualValue, 2);
+                if (i >= fold * foldSize && i < (fold + 1) * foldSize)
+                {
+                    foldValidationInputs[validationIndex] = inputs[i];
+                    foldValidationOutputs[validationIndex] = outputs[i];
+                    validationIndex++;
+                }
+                else
+                {
+                    foldTrainInputs[trainIndex] = inputs[i];
+                    foldTrainOutputs[trainIndex] = outputs[i];
+                    trainIndex++;
+                }
             }
-            trainingError /= inputs.Length;
 
-            epoca++;
-            // Erro Quadrático Médio (MSE): Mede a média dos quadrados das diferenças entre os valores reais e os valores previstos.
-            // Erro Médio de Treinamento: Média dos erros absolutos entre os valores reais e previstos durante o treinamento.
-            Console.WriteLine($"Epoca: {epoca}, Erro Médio no Treinamento: {epochError}, Erro Quadrático Médio: {trainingError}");
-
-        } while (epochError > 0.01 && epoca < 10000);
-
-        // Criar um arquivo txt com os resultados do treinamento
-        using (StreamWriter writer = new StreamWriter("resultados_aproximacao_de_Seno.txt"))
-        {
-            writer.WriteLine("Input\tPredicted\tActual");
-            for (int i = 0; i < inputs.Length; i++)
+            // Treinar a rede neural no fold atual
+            double epochError;
+            int epoca = 0;
+            do
             {
-                double[] output = network.Compute(inputs[i]);
+                epochError = teacher.RunEpoch(foldTrainInputs, foldTrainOutputs);
+                epoca++;
+            } while (epochError > 0.01 && epoca < 10000);
 
-                // Desnormalizar os valores
-                double actualValue = Math.Sin(Denormalize(inputs[i][0], minX, maxX));
-                double predictedValue = Denormalize(output[0], minT, maxT);
-
-                writer.WriteLine($"{Denormalize(inputs[i][0], minX, maxX)}\t{predictedValue}\t{actualValue}");
-                Console.WriteLine($"Input: {Denormalize(inputs[i][0], minX, maxX)}, Predicted: {predictedValue}, Actual: {actualValue}");
-            }
-        }
-
-        Console.WriteLine("Resultado salvo em: 'resultados_aproximacao_de_Seno.txt'");
-
-        // Normalizar dados de validação
-        double[] normalizedValidationInputs = new double[validationInputs.Length]; 
-        for (int i = 0; i < validationInputs.Length; i++)
-        {
-            normalizedValidationInputs[i] = (validationInputs[i] - minX) / (maxX - minX);
-        }
-
-        // Validar a rede neural
-        using (StreamWriter writer = new StreamWriter("resultados_validacao.txt"))
-        {
-            writer.WriteLine("Input\tPredicted\tExpected");
-            double squaredErrorSum = 0.0;
-            for (int i = 0; i < validationInputs.Length; i++)
+            // Calcular o erro de treinamento
+            double foldTrainingError = 0;
+            for (int i = 0; i < foldTrainInputs.Length; i++)
             {
-                double[] output = network.Compute(new double[] { normalizedValidationInputs[i] });
-
-                // Desnormalizar os valores
+                double[] output = network.Compute(foldTrainInputs[i]);
                 double predictedValue = Denormalize(output[0], minT, maxT);
-                double expectedValue = expectedOutputs[i];
-
-                // Calcular o erro quadrático para validação 
-                double error = predictedValue - expectedValue;
-                squaredErrorSum += error * error;
-
-                writer.WriteLine($"{validationInputs[i]}\t{predictedValue}\t{expectedValue}");
-                Console.WriteLine($"Input: {validationInputs[i]}, Predicted: {predictedValue}, Expected: {expectedValue}");
+                double actualValue = Math.Sin(Denormalize(foldTrainInputs[i][0], minX, maxX));
+                foldTrainingError += Math.Pow(predictedValue - actualValue, 2);
             }
+            foldTrainingError /= foldTrainInputs.Length;
 
-            double meanSquaredErrorValidation = squaredErrorSum / validationInputs.Length;
-            // Console.WriteLine($"Erro Quadrático Médio de Validação: {meanSquaredErrorValidation}");
+            // Calcular o erro de validação
+            double foldValidationError = 0;
+            for (int i = 0; i < foldValidationInputs.Length; i++)
+            {
+                double[] output = network.Compute(foldValidationInputs[i]);
+                double predictedValue = Denormalize(output[0], minT, maxT);
+                double actualValue = Math.Sin(Denormalize(foldValidationInputs[i][0], minX, maxX));
+                foldValidationError += Math.Pow(predictedValue - actualValue, 2);
+            }
+            foldValidationError /= foldValidationInputs.Length;
+
+            // Acumular os erros
+            totalTrainingError += foldTrainingError;
+            totalValidationError += foldValidationError;
+
+            Console.WriteLine($"Fold {fold + 1}: Erro de Treinamento: {foldTrainingError}, Erro de Validação: {foldValidationError}");
         }
 
-        // Console.WriteLine("Resultado de validação salvo em: 'resultados_validacao.txt'");
+        // Calcular a média dos erros de treinamento e validação
+        double meanTrainingError = totalTrainingError / k;
+        double meanValidationError = totalValidationError / k;
 
-        // Preparar os dados para o gráfico de treinamento
-        double[] predicted = new double[X.Length];
-        for (int i = 0; i < X.Length; i++)
-        {
-            double[] output = network.Compute(new double[] { (X[i] - minX) / (maxX - minX) });
-            predicted[i] = Denormalize(output[0], minT, maxT);
-        }
+        Console.WriteLine($"\nErro Médio de Treinamento: {meanTrainingError}, Erro Médio de Validação: {meanValidationError}");
 
-        // Criar o gráfico de treinamento
-        ScatterplotBox.Show("Gráfico de Treinamento - Valores Reais", X, T);
-        ScatterplotBox.Show("Gráfico de Treinamento - Valores Da Rede", X, predicted);
-
-        // Preparar os dados para o gráfico de validação
-        double[] predictedValidation = new double[validationInputs.Length];
-        for (int i = 0; i < validationInputs.Length; i++)
-        {
-            double[] output = network.Compute(new double[] { normalizedValidationInputs[i] });
-            predictedValidation[i] = Denormalize(output[0], minT, maxT);
-        }
+        // Manter o console aberto
+        Console.ReadLine();
     }
 
     static double Denormalize(double value, double min, double max)
