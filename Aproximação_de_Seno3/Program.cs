@@ -156,13 +156,13 @@ class Aproximacao_Seno_3
         ScatterplotBox.Show("Gráfico de Treinamento - Valores Da Rede", X, predicted);
 
         // Preparar os dados para o gráfico de validação
-        double[] predictedValidation = new double[validationInputs.Length];
+       /* double[] predictedValidation = new double[validationInputs.Length];
         for (int i = 0; i < validationInputs.Length; i++)
         {
             double[] output = network.Compute(new double[] { normalizedValidationInputs[i] });
             predictedValidation[i] = Denormalize(output[0], minT, maxT);
         }
-    }
+    }*/
 
     static double Denormalize(double value, double min, double max)
     {
