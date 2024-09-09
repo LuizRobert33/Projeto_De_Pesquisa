@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\Teste\\Aproxamia\u00E7\u00E3o_de_Seno\\",
+  "WorkspaceRootPath": "C:\\Users\\luizr\\OneDrive\\Documentos\\Programa\u00E7\u00E3o\\Projeto_De_Pesquisa\\Aproxamia\u00E7\u00E3o_de_Seno\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E70EE5F-6A81-4E22-811C-8DC4051DF596}|Aproxamia\u00E7\u00E3o_de_Seno.csproj|c:\\users\\luizr\\onedrive\\\u00E1rea de trabalho\\teste\\aproxamia\u00E7\u00E3o_de_seno\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3E70EE5F-6A81-4E22-811C-8DC4051DF596}|Aproxamia\u00E7\u00E3o_de_Seno.csproj|c:\\users\\luizr\\onedrive\\documentos\\programa\u00E7\u00E3o\\projeto_de_pesquisa\\aproxamia\u00E7\u00E3o_de_seno\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E70EE5F-6A81-4E22-811C-8DC4051DF596}|Aproxamia\u00E7\u00E3o_de_Seno.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\Teste\\Aproxamia\u00E7\u00E3o_de_Seno\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\luizr\\OneDrive\\Documentos\\Programa\u00E7\u00E3o\\Projeto_De_Pesquisa\\Aproxamia\u00E7\u00E3o_de_Seno\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\luizr\\OneDrive\\\u00C1rea de Trabalho\\Teste\\Aproxamia\u00E7\u00E3o_de_Seno\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\luizr\\OneDrive\\Documentos\\Programa\u00E7\u00E3o\\Projeto_De_Pesquisa\\Aproxamia\u00E7\u00E3o_de_Seno\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-05T14:13:21.198Z",
               "EditorCaption": ""
