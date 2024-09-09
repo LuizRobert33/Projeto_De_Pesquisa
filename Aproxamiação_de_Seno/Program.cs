@@ -77,11 +77,11 @@ class Aproximacao_Seno_3
         };
 
         // Treinar a rede neural
-        double totalTrainingSquaredError = 0;
+        double trainingError;
         int epoca = 0;
         do
         {
-            double trainingError = teacher.RunEpoch(inputs, outputs);
+            trainingError = teacher.RunEpoch(inputs, outputs);
 
             // Cálculo do erro quadrático médio entre o valor real e o previsto durante o treinamento
             double squaredErrorSum = 0;
@@ -94,15 +94,11 @@ class Aproximacao_Seno_3
                 squaredErrorSum += error * error; // Acumula o erro quadrático
             }
             double trainingSquaredError = squaredErrorSum / inputs.Length; // Calcula o erro quadrático médio
-            totalTrainingSquaredError += trainingSquaredError;
+            double trainingRMSE = Math.Sqrt(trainingSquaredError); // Calcula o RMSE
+            Console.WriteLine($"Época: {epoca}, Erro Quadrático Médio: {trainingSquaredError}, RMSE: {trainingRMSE}");
 
             epoca++;
-            Console.WriteLine($"Época: {epoca}, Erro Quadrático Médio: {trainingSquaredError}");
-
-        } while (epoca < 10000); // Continua o treinamento até atingir o número máximo de épocas
-
-        double meanTrainingSquaredError = totalTrainingSquaredError / epoca; // Calcula a média dos erros quadráticos médios durante o treinamento
-        Console.WriteLine($"Média dos Erros Quadráticos Médios durante o Treinamento: {meanTrainingSquaredError}");
+        } while (trainingError > 0.01 && epoca < 10000); // Continua o treinamento até atingir o erro mínimo ou o número máximo de épocas
 
         // Normalizar dados de validação
         double[] normalizedValidationInputs = new double[validationInputs.Length];
@@ -129,7 +125,8 @@ class Aproximacao_Seno_3
         }
 
         double meanSquaredErrorValidation = squaredErrorSumValidation / validationInputs.Length; // Calcula o erro quadrático médio para validação
-        Console.WriteLine($"Erro Quadrático Médio de Validação: {meanSquaredErrorValidation}");
+        double meanRMSEValidation = Math.Sqrt(meanSquaredErrorValidation); // Calcula o RMSE para validação
+        Console.WriteLine($"Erro Quadrático Médio de Validação: {meanSquaredErrorValidation}, RMSE de Validação: {meanRMSEValidation}");
 
         // Preparar os dados para o gráfico de treinamento
         double[] predicted = new double[X.Length];
@@ -140,11 +137,19 @@ class Aproximacao_Seno_3
         }
 
         // Criar o gráfico de treinamento
-        ScatterplotBox.Show("Gráfico de Treinamento - Valores Reais", X, T); // Gráfico dos valores reais
-        ScatterplotBox.Show("Gráfico de Treinamento - Valores da Rede", X, predicted); // Gráfico dos valores previstos pela rede
+        //ScatterplotBox.Show("Gráfico de Treinamento - Valores Reais", X, T); // Gráfico dos valores reais
+        //ScatterplotBox.Show("Gráfico de Treinamento - Valores da Rede", X, predicted); // Gráfico dos valores previstos pela rede
 
         // Manter o terminal aberto para visualizar os resultados
         Console.WriteLine("Pressione Enter para fechar...");
         Console.ReadLine();
     }
 }
+
+//No treinamento, o MSE e RMSE são calculados a cada época e fornecidos como parte do feedback durante o processo de treinamento.
+//Isso ajuda a monitorar o progresso da rede neural.
+
+
+// Na validação, o MSE e RMSE são calculados após o treinamento ter sido concluído, para avaliar o desempenho do modelo em dados que não foram usados
+// durante o treinamento.
+// Esses valores ajudam a entender como o modelo generaliza para novos dados.
