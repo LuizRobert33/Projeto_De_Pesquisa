@@ -3,6 +3,9 @@ using Accord.Controls;
 using Accord.Neuro;
 using Accord.Neuro.Learning;
 
+// Cálculo do erro do y treinamento e y calculado
+// Cálculo do erro do y validação e o y da rede
+
 class Aproximacao_Seno_3
 {
     // Método para desnormalizar valores, convertendo valores normalizados de volta ao intervalo original
@@ -74,11 +77,11 @@ class Aproximacao_Seno_3
         };
 
         // Treinar a rede neural
-        double trainingError;
+        double totalTrainingSquaredError = 0;
         int epoca = 0;
         do
         {
-            trainingError = teacher.RunEpoch(inputs, outputs);
+            double trainingError = teacher.RunEpoch(inputs, outputs);
 
             // Cálculo do erro quadrático médio entre o valor real e o previsto durante o treinamento
             double squaredErrorSum = 0;
@@ -91,11 +94,15 @@ class Aproximacao_Seno_3
                 squaredErrorSum += error * error; // Acumula o erro quadrático
             }
             double trainingSquaredError = squaredErrorSum / inputs.Length; // Calcula o erro quadrático médio
+            totalTrainingSquaredError += trainingSquaredError;
 
             epoca++;
             Console.WriteLine($"Época: {epoca}, Erro Quadrático Médio: {trainingSquaredError}");
 
-        } while (trainingError > 0.01 && epoca < 10000); // Continua o treinamento até atingir o erro mínimo ou o número máximo de épocas
+        } while (epoca < 10000); // Continua o treinamento até atingir o número máximo de épocas
+
+        double meanTrainingSquaredError = totalTrainingSquaredError / epoca; // Calcula a média dos erros quadráticos médios durante o treinamento
+        Console.WriteLine($"Média dos Erros Quadráticos Médios durante o Treinamento: {meanTrainingSquaredError}");
 
         // Normalizar dados de validação
         double[] normalizedValidationInputs = new double[validationInputs.Length];
