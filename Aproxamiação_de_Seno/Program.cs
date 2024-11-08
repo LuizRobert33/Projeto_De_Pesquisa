@@ -136,9 +136,9 @@ class Aproximacao_Seno_3
             predicted[i] = app.Denormalize(output[0], minT, maxT); // Desnormaliza o valor previsto
         }
 
-        // Criar o gráfico de treinamento
-        //ScatterplotBox.Show("Gráfico de Treinamento - Valores Reais", X, T); // Gráfico dos valores reais
-        //ScatterplotBox.Show("Gráfico de Treinamento - Valores da Rede", X, predicted); // Gráfico dos valores previstos pela rede
+         //Criar o gráfico de treinamento
+        ScatterplotBox.Show("Gráfico de Treinamento - Valores Reais", X, T); // Gráfico dos valores reais
+        ScatterplotBox.Show("Gráfico de Treinamento - Valores da Rede", X, predicted); // Gráfico dos valores previstos pela rede
 
         // Manter o terminal aberto para visualizar os resultados
         Console.WriteLine("Pressione Enter para fechar...");
